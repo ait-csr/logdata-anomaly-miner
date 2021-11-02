@@ -65,6 +65,11 @@ RUN PACK=$(find /usr/lib/python3/dist-packages -name posix1e.cpython\*.so) && FI
 USER aminer
 WORKDIR /home/aminer
 
+# Add detectors for SOCCRATES
+RUN mkdir -p /etc/aminer
+ADD soc-config/conf-available /etc/aminer/conf-available
+ADD soc-config/conf-enabled /etc/aminer/conf-enabled
+
 # The following volumes can be mounted
 VOLUME ["/etc/aminer","/var/lib/aminer","/logs"]
 
